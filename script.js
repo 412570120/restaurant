@@ -15,14 +15,13 @@ $(document).ready(function () {
     let itemName = $(this).parent().data('name');
     let itemPrice = $(this).parent().data('price');
 
-    let cartItem = $(`<li>${itemName} - NT$${itemPrice} 
-      <button class="remove-item">移除</button> 
-      <button class="increase-qty">+</button>
-      <span class="quantity"> 1 </span>
-      <button class="decrease-qty">-</button>
-    </li>`).hide().fadeIn();
-
-    $('#cart-items').append(cartItem);
+    // 新增至購物車清單
+    $('#cart-items').append(
+      `<li class="cart-item">
+        ${itemName} - NT$${itemPrice} 
+        <button class="remove-item" data-price="${itemPrice}">移除</button>
+      </li>`
+    );
     updateTotal(itemPrice);
   });
 
@@ -34,43 +33,24 @@ $(document).ready(function () {
 
   // 移除購物車項目
   $('#cart-items').on('click', '.remove-item', function () {
-    let itemPrice = parseInt($(this).parent().text().match(/NT\$([0-9]+)/)[1]);
-    let quantity = parseInt($(this).siblings('.quantity').text());
-    updateTotal(-itemPrice * quantity);
-    $(this).parent().fadeOut(function () {
-      $(this).remove();
-    });
+    let price = parseInt($(this).data('price'));
+    updateTotal(-price);
+    $(this).parent().remove();
   });
 
   // 清空購物車
   $('#clear-cart').click(function () {
-    $('#cart-items').fadeOut(function () {
-      $(this).empty().fadeIn();
-    });
+    $('#cart-items').empty();
     $('#total-price').text('總金額: NT$0');
   });
 
-  // 增加商品數量
-  $('#cart-items').on('click', '.increase-qty', function () {
-    let quantityElem = $(this).siblings('.quantity');
-    let newQty = parseInt(quantityElem.text()) + 1;
-    quantityElem.text(newQty);
-    
-    let itemPrice = parseInt($(this).parent().text().match(/NT\$([0-9]+)/)[1]);
-    updateTotal(itemPrice);
-  });
-
-  // 減少商品數量
-  $('#cart-items').on('click', '.decrease-qty', function () {
-    let quantityElem = $(this).siblings('.quantity');
-    let currentQty = parseInt(quantityElem.text());
-
-    if (currentQty > 1) {
-      let newQty = currentQty - 1;
-      quantityElem.text(newQty);
-
-      let itemPrice = parseInt($(this).parent().text().match(/NT\$([0-9]+)/)[1]);
-      updateTotal(-itemPrice);
-    }
+  // 搜尋功能
+  $('#search-bar').on('input', function () {
+    let query = $(this).val().toLowerCase();
+    $('.menu-item').each(function () {
+      let itemName = $(this).data('name').toLowerCase();
+      $(this).toggle(itemName.includes(query));
+    });
   });
 });
+
