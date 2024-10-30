@@ -14,7 +14,15 @@ $(document).ready(function () {
   $('.add-to-cart').click(function () {
     let itemName = $(this).parent().data('name');
     let itemPrice = $(this).parent().data('price');
-    $('#cart-items').append(`<li>${itemName} - NT$${itemPrice}</li>`);
+
+    let cartItem = $(`<li>${itemName} - NT$${itemPrice} 
+      <button class="remove-item">移除</button> 
+      <button class="increase-qty">+</button>
+      <span class="quantity"> 1 </span>
+      <button class="decrease-qty">-</button>
+    </li>`).hide().fadeIn();
+
+    $('#cart-items').append(cartItem);
     updateTotal(itemPrice);
   });
 
@@ -23,4 +31,46 @@ $(document).ready(function () {
     let currentTotal = parseInt($('#total-price').text().replace('總金額: NT$', ''));
     $('#total-price').text(`總金額: NT$${currentTotal + price}`);
   }
+
+  // 移除購物車項目
+  $('#cart-items').on('click', '.remove-item', function () {
+    let itemPrice = parseInt($(this).parent().text().match(/NT\$([0-9]+)/)[1]);
+    let quantity = parseInt($(this).siblings('.quantity').text());
+    updateTotal(-itemPrice * quantity);
+    $(this).parent().fadeOut(function () {
+      $(this).remove();
+    });
+  });
+
+  // 清空購物車
+  $('#clear-cart').click(function () {
+    $('#cart-items').fadeOut(function () {
+      $(this).empty().fadeIn();
+    });
+    $('#total-price').text('總金額: NT$0');
+  });
+
+  // 增加商品數量
+  $('#cart-items').on('click', '.increase-qty', function () {
+    let quantityElem = $(this).siblings('.quantity');
+    let newQty = parseInt(quantityElem.text()) + 1;
+    quantityElem.text(newQty);
+    
+    let itemPrice = parseInt($(this).parent().text().match(/NT\$([0-9]+)/)[1]);
+    updateTotal(itemPrice);
+  });
+
+  // 減少商品數量
+  $('#cart-items').on('click', '.decrease-qty', function () {
+    let quantityElem = $(this).siblings('.quantity');
+    let currentQty = parseInt(quantityElem.text());
+
+    if (currentQty > 1) {
+      let newQty = currentQty - 1;
+      quantityElem.text(newQty);
+
+      let itemPrice = parseInt($(this).parent().text().match(/NT\$([0-9]+)/)[1]);
+      updateTotal(-itemPrice);
+    }
+  });
 });
