@@ -154,3 +154,21 @@ button.remove-item:hover {
 #clear-cart:hover {
   background-color: #e0a800;
 }
+
+/* 彈窗樣式 */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1000;
+  font-size: 1.2em;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
