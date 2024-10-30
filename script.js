@@ -2,7 +2,7 @@ $(document).ready(function() {
   // 顯示彈窗的函數
   function showPopup(message) {
     $('#popup-text').text(message);
-    $('#popup-message').fadeIn(300).delay(1000).fadeOut(300);
+    $('#popup-message').fadeIn(300).delay(1000).fadeOut(1000);
   }
 
   // 新增至購物車按鈕事件
