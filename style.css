@@ -15,10 +15,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url('background.png'); /* 在此替換成您圖片的實際路徑 */
+  background-image: url('您的自定義圖片路徑'); /* 替換為圖片路徑 */
   background-size: cover;
   background-position: center;
-  color: #333; /* 移除黑色背景，並設置文字顏色 */
+  color: #333;
+  padding: 20px;
 }
 
 header {
@@ -113,27 +114,6 @@ button.add-to-cart {
 
 button.add-to-cart:hover {
   background-color: #218838;
-}
-
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-button.remove-item {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 5px 8px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button.remove-item:hover {
-  background-color: #c82333;
 }
 
 #total-price {
