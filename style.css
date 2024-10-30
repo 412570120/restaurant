@@ -3,14 +3,25 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
   display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
+}
+
+.left-section {
+  flex: 1;
+  background-image: url('background.png'); /* 請將這裡替換為您圖片的實際路徑 */
+  background-size: cover;
+  background-position: center;
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
 }
 
 header {
@@ -141,3 +152,4 @@ button.remove-item:hover {
 #clear-cart:hover {
   background-color: #e0a800;
 }
+
