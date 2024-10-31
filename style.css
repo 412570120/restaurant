@@ -116,6 +116,19 @@ button.add-to-cart:hover {
   background-color: #218838;
 }
 
+button.remove-item {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.remove-item:hover {
+  background-color: #c82333;
+}
+
 #total-price {
   font-weight: bold;
   margin-top: 15px;
