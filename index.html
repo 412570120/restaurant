@@ -16,7 +16,7 @@
       <h2>這裡有小羊女巫專屬調製藥水，讓你心想事成，天天不煩惱!</h2>
       <nav>
         <ul>
-          <li><a href="#" id="menu-btn">商品</a></li>
+          <li><a href="#" id="menu-btn">魔藥鋪</a></li>
           <li><a href="#" id="cart-btn">購物籃</a></li>
           <li><a href="#" id="cart-btn">結帳</a></li>
         </ul>
@@ -27,19 +27,43 @@
   <div class="right-section">
     <main>
       <section id="menu" class="content-section">
-        <h2>菜單</h2>
+        <h2>魔藥鋪</h2>
         <input type="text" id="search-bar" placeholder="搜尋餐點...">
-        <div class="menu-item" data-name="愛情毒藥" data-price="200">
-          <p>愛情藥水</p>
-          <p class="description">只要拿給心儀對象服用，他就會對你一見鍾情!</p>
-          <span>NT$1000</span>
-          <button class="add-to-cart">加入購物車</button>
+        <div class="menu-item" data-name="一夜好眠" data-price="150">
+          <p>一夜好眠</p>
+           <p class="description">專治有睡眠障礙的你，一覺到天亮</p>
+          <span>NT$150/2</span>
+          <button class="add-to-cart">加入購物籃</button>
         </div>
-        <div class="menu-item" data-name="速速速" data-price="150">
+        <div class="menu-item" data-name="速速速" data-price="200">
           <p>速速速</p>
            <p class="description">喝了它可以提升速度，從校門口走到國璽樓只需3秒鐘</p>
-          <span>NT$200</span>
-          <button class="add-to-cart">加入購物車</button>
+          <span>NT$200/1</span>
+          <button class="add-to-cart">加入購物籃</button>
+        </div>
+        <div class="menu-item" data-name="變身閃粉" data-price="500">
+          <p>變身閃粉</p>
+           <p class="description">將其撒在目標對象身上，他就會變成一隻羊喔，咩~</p>
+          <span>NT$500/2</span>
+          <button class="add-to-cart">加入購物籃</button>
+        </div>
+        <div class="menu-item" data-name="愛情毒藥" data-price="2000">
+          <p>愛情藥水</p>
+          <p class="description">只要拿給心儀對象服用，他就會對你一見鍾情!</p>
+          <span>NT$2000/1</span>
+          <button class="add-to-cart">加入購物籃</button>
+        </div>
+        <div class="menu-item" data-name="時光水" data-price="5000">
+          <p>時光水</p>
+           <p class="description">讓你回到過去，彌補從前的遺憾</p>
+          <span>NT$5000/1</span>
+          <button class="add-to-cart">加入購物籃</button>
+        </div>
+        <div class="menu-item" data-name="心想事成" data-price="5000">
+          <p>心想事成</p>
+           <p class="description">心想事成也是要有代價的!喝下他壽命會減少十年</p>
+          <span>NT$5000/1</span>
+          <button class="add-to-cart">加入購物籃</button>
         </div>
       </section>
 
@@ -53,6 +77,7 @@
 
       <section id="checkout" class="content-section" style="display: none;">
         <h2>結帳頁面</h2>
+        <p>注意:本舖僅提供現金支付</p>
         <ul id="checkout-items"></ul>
         <p id="checkout-total">總金額: NT$0</p>
         <label>
@@ -65,7 +90,9 @@
         <label>選擇發票形式:
           <select id="invoice-type">
             <option value="paper">紙本</option>
-            <option value="carrier">載具</option>
+            <option value="carrier">載具
+              <input type="text" id="search-bar" placeholder="輸入載具...">
+            </option>
           </select>
         </label>
         <br><br>
