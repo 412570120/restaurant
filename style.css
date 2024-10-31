@@ -242,14 +242,6 @@ background-color: #e0a800;
   text-align: right;
 }
 
-#clear-cart, #checkout-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1em;
-  cursor: pointer;
-  border: none;
-}
-
 #clear-cart {
   background-color: #ffc107;
   color: black;
