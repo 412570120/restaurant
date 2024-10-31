@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>結帳 - 小羊魔藥舖</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      let deliveryFee = 0;
+
+      // 更新總金額，根據外送選項加上外送費用
+      function updateTotalPrice() {
+        let totalPrice = 0;
+        $('#checkout-items .cart-item').each(function() {
+          const itemPrice = $(this).data('price');
+          totalPrice += itemPrice;
+        });
+
+        $('#checkout-total').text(`總金額: NT$${totalPrice + deliveryFee}`);
+      }
+
+      // 切換外送/自取時更新運費
+      $('input[name="delivery"]').on('change', function() {
+        deliveryFee = $(this).val() === 'delivery' ? 30 : 0;
+        updateTotalPrice();
+      });
+
+      // 回到購物籃
+      $('#back-to-cart').on('click', function() {
+        window.location.href = 'index.html'; // 假設主頁為 index.html
+      });
+
+      // 確認結帳
+      $('#confirm-checkout').on('click', function() {
+        alert('結帳成功！感謝您的購買！');
+        window.location.href = 'index.html'; // 回到主頁
+      });
+    });
+  </script>
+</head>
+<body>
+  <main>
+    <section id="checkout" class="content-section">
+      <h2>結帳頁面</h2>
+      <p>注意: 本舖僅提供現金支付</p>
+      <ul id="checkout-items"></ul>
+      <p id="checkout-total">總金額: NT$0</p>
+      <label>
+        <input type="radio" name="delivery" value="self-pickup" checked> 自取
+      </label>
+      <label>
+        <input type="radio" name="delivery" value="delivery"> 外送 (加收30元)
+      </label>
+      <br>
+      <label>選擇發票形式:
+        <select id="invoice-type">
+          <option value="paper">紙本</option>
+          <option value="carrier">載具
+            <input type="text" id="search-bar" placeholder="輸入載具...">
+          </option>
+        </select>
+      </label>
+      <br><br>
+      <button id="confirm-checkout">確認結帳</button>
+      <button id="back-to-cart">回到購物籃</button>
+    </section>
+  </main>
+</body>
+</html>
