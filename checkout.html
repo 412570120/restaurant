@@ -38,6 +38,15 @@
         updateTotalPrice();
       });
 
+      // 顯示或隱藏載具輸入框
+      $('#invoice-type').on('change', function() {
+        if ($(this).val() === 'carrier') {
+          $('#carrier-input').show();
+        } else {
+          $('#carrier-input').hide();
+        }
+      });
+
       // 回到購物籃
       $('#back-to-cart').on('click', function() {
         window.location.href = 'index.html'; // 假設主頁為 index.html
@@ -49,6 +58,9 @@
         sessionStorage.removeItem('cartItems'); // 清空購物車
         window.location.href = 'index.html'; // 回到主頁
       });
+      
+      // 初始隱藏載具輸入框
+      $('#carrier-input').hide();
     });
   </script>
 </head>
@@ -69,11 +81,10 @@
       <label>選擇發票形式:
         <select id="invoice-type">
           <option value="paper">紙本</option>
-          <option value="carrier">載具
-            <input type="text" id="search-bar" placeholder="輸入載具...">
-          </option>
+          <option value="carrier">載具</option>
         </select>
       </label>
+      <input type="text" id="carrier-input" placeholder="輸入載具...">
       <br><br>
       <button id="confirm-checkout">確認結帳</button>
       <button id="back-to-cart">回到購物籃</button>
