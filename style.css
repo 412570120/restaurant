@@ -164,3 +164,19 @@ button.remove-item:hover {
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
+/* 使用先前的樣式代碼，新增結帳頁面的樣式 */
+button#checkout-btn, #confirm-checkout, #back-to-cart {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#checkout-btn:hover, #confirm-checkout:hover, #back-to-cart:hover {
+  background-color: #0056b3;
+}
+
