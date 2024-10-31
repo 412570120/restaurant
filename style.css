@@ -3,58 +3,67 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
   display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
 }
 
 .left-section {
   flex: 1;
-  background-image: url('backgroung.png'); /* 請將這裡替換為您圖片的實際路徑 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('background.png'); /* 替換為圖片路徑 */
   background-size: cover;
   background-position: center;
+  color: #333;
+  padding: 20px;
 }
 
 header {
-  padding: 20px;
   text-align: center;
-  width: 100%;
 }
 
 header h1 {
-  margin: 0;
+  margin: 0 0 20px 0;
+  font-size: 2em;
+  color: #333;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
   display: flex;
-  justify-content: center;
-  margin-top: 10px;
+  gap: 20px;
 }
 
 nav ul li {
-  margin: 0 15px;
+  margin: 0;
 }
 
 nav ul li a {
-  color: #fff;
+  color: #333;
   text-decoration: none;
   font-weight: bold;
   padding: 10px 20px;
-  border: 2px solid #fff;
+  border: 2px solid #333;
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
 }
 
 nav ul li a:hover {
-  background-color: #fff;
-  color: #333;
+  background-color: #333;
+  color: #fff;
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
 }
 
 main {
@@ -107,27 +116,6 @@ button.add-to-cart:hover {
   background-color: #218838;
 }
 
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-button.remove-item {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 5px 8px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button.remove-item:hover {
-  background-color: #c82333;
-}
-
 #total-price {
   font-weight: bold;
   margin-top: 15px;
@@ -145,4 +133,21 @@ button.remove-item:hover {
 
 #clear-cart:hover {
   background-color: #e0a800;
+}
+
+/* 彈窗樣式 */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1000;
+  font-size: 1.2em;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
