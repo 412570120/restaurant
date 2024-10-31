@@ -127,7 +127,7 @@ button:hover {
       position: relative;
       overflow: hidden;
       height: 50px; /* 調整高度以適應你的內容 */
-      background-color: #f0f0f0; /* 背景顏色 */
+      background-color: #ebe8e8; /* 背景顏色 */
     }
 
     #sliding-text h3 {
