@@ -77,6 +77,12 @@ main {
   margin: 20px 0;
 }
 
+.description {
+  font-size: 0.8em; /* 字型縮小 */
+  color: #555; /* 調整字體顏色 */
+  margin-top: -5px; /* 調整間距使其靠近標題 */
+}
+
 #search-bar {
   width: 100%;
   padding: 10px;
