@@ -137,11 +137,16 @@ button:hover {
       animation: slide 5s linear infinite; /* 設定動畫 */
     }
 
-#loading-message,
-#upcoming-message {
+#loading-message,{
     color: black; /* 將文字顏色設置為黑色 */
 }
 
+#upcoming-message{
+ background-color: #ebe8e8; /* 將背景顏色設置為淺灰色，您可以更改為所需顏色 */
+ color: black;
+ padding: 10px; /* 添加一些內邊距以使內容更美觀 */
+ border-radius: 5px; /* 添加圓角 */
+}
 
     @keyframes slide {
       0% {
