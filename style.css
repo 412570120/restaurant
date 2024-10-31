@@ -38,6 +38,11 @@ header h2 {
   color:#ebe8e8;
 }
 
+/* 將標題和副標題初始設為不可見 */
+header h1, header h2 {
+  display: none;
+}
+
 nav ul {
 list-style: none;
 padding: 0;
