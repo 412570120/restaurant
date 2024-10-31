@@ -200,7 +200,7 @@ cursor: pointer;
 }
 
 #clear-cart:hover {
-background-color: #b9bd59;
+background-color: #c47225;
 }
 
 /* 購物籃樣式 */
@@ -244,7 +244,7 @@ background-color: #b9bd59;
 }
 
 #clear-cart {
-  background-color: #ffc107;
+  background-color: #854d19;
   color: black;
 }
 
@@ -283,7 +283,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 
 /* 使用先前的樣式代碼，新增結帳頁面的樣式 */
 button#checkout-btn, #confirm-checkout, #back-to-cart {
-background-color: #007bff;
+background-color: #3e5063;
 color: white;
 border: none;
 padding: 10px 20px;
@@ -293,5 +293,5 @@ cursor: pointer;
 }
 
 button#checkout-btn:hover, #confirm-checkout:hover, #back-to-cart:hover {
-background-color: #0056b3;
+background-color: #576f8a;
 }
