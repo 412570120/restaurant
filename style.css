@@ -194,3 +194,25 @@ button#checkout-btn:hover, #confirm-checkout:hover, #back-to-cart:hover {
   background-color: #0056b3;
 }
 
+/* 結帳頁面全畫面顯示 */
+#checkout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* 消除項目前的點點 */
+#checkout-items,
+#cart-items {
+  list-style-type: none;
+  padding-left: 0;
+}
+
