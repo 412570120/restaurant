@@ -19,6 +19,32 @@ $(document).ready(function() {
     $('#checkout-total').text(`總金額: NT$${totalPrice + deliveryFee}`);
   }
 
+  // 更新sessionStorage的購物車內容
+  function updateSessionStorage() {
+    const cartItems = [];
+    $('#cart-items .cart-item').each(function() {
+      const itemName = $(this).data('name');
+      const itemPrice = $(this).data('price');
+      cartItems.push({ name: itemName, price: itemPrice });
+    });
+    sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }
+
+  // 載入sessionStorage的購物車內容到頁面
+  function loadCartItems() {
+    const cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
+    $('#cart-items').empty();
+    cartItems.forEach(item => {
+      $('#cart-items').append(`
+        <li class="cart-item" data-name="${item.name}" data-price="${item.price}">
+          <span>${item.name} - NT$${item.price}</span>
+          <button class="remove-item">刪除</button>
+        </li>
+      `);
+    });
+    updateTotalPrice();
+  }
+
   // 切換外送/自取時更新運費
   $('input[name="delivery"]').on('change', function() {
     deliveryFee = $(this).val() === 'delivery' ? 30 : 0;
@@ -54,7 +80,7 @@ $(document).ready(function() {
         </li>
       `);
     });
-    
+
     updateTotalPrice();
   });
 
@@ -67,6 +93,7 @@ $(document).ready(function() {
       $('#order-complete').hide();
       $('#menu').show(); // 返回主頁面
       $('#cart-items').empty();  // 清空購物車
+      sessionStorage.removeItem('cartItems'); // 清空 sessionStorage
       updateTotalPrice(); // 更新為0元
     }, 3000);
   });
@@ -89,6 +116,7 @@ $(document).ready(function() {
       </li>
     `);
     updateTotalPrice();
+    updateSessionStorage(); // 更新 sessionStorage
     showPopup(`${itemName} 已加入購物車！`);
   });
 
@@ -96,6 +124,7 @@ $(document).ready(function() {
   $('#cart-items').on('click', '.remove-item', function() {
     $(this).closest('.cart-item').remove();
     updateTotalPrice();
+    updateSessionStorage(); // 更新 sessionStorage
     showPopup('商品已從購物車移除！');
   });
 
@@ -103,7 +132,10 @@ $(document).ready(function() {
   $('#clear-cart').on('click', function() {
     $('#cart-items').empty();
     updateTotalPrice();
+    sessionStorage.removeItem('cartItems'); // 清空 sessionStorage
     showPopup('購物車已清空！');
   });
-});
 
+  // 頁面加載時載入sessionStorage的購物車內容
+  loadCartItems();
+});
