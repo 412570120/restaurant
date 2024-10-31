@@ -10,6 +10,7 @@ body {
   margin: 0;
 }
 
+
 /* 結帳框置中設計 */
 .checkout-section {
   width: 90%;
@@ -135,6 +136,12 @@ button:hover {
       white-space: nowrap; /* 不換行 */
       animation: slide 5s linear infinite; /* 設定動畫 */
     }
+
+#loading-message,
+#upcoming-message {
+    color: black; /* 將文字顏色設置為黑色 */
+}
+
 
     @keyframes slide {
       0% {
