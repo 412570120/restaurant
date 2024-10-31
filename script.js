@@ -84,6 +84,13 @@ $('#cart-btn').on('click', function() {
 
   // 前往結帳
   $('#checkout-btn').on('click', function() {
+     const cartItems = $('#cart-items .cart-item');
+
+  // 檢查購物車是否為空
+  if (cartItems.length === 0) {
+    showPopup('購物車是空的，請先添加商品！'); // 顯示提示
+    return; // 退出，不執行後續代碼
+  }
     $('.content-section').fadeOut(200, function() {
       $('#checkout').fadeIn(400); // 增加漸入動畫
     });
