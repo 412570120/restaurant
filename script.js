@@ -13,15 +13,14 @@ $(document).ready(function() {
   });
 
   $('#menu-btn').on('click', function() {
-  $('.content-section').slideUp(300); // 隱藏其他內容
-  $('#menu').delay(300).slideDown(500); // 滑動顯示魔藥鋪內容
-});
+    $('.content-section').slideUp(300); // 隱藏其他內容
+    $('#menu').delay(300).slideDown(500); // 滑動顯示魔藥鋪內容
+  });
 
-$('#cart-btn').on('click', function() {
-  $('.content-section').slideUp(300);
-  $('#cart').delay(300).slideDown(500); // 滑動顯示購物籃
-});
-
+  $('#cart-btn').on('click', function() {
+    $('.content-section').slideUp(300);
+    $('#cart').delay(300).slideDown(500); // 滑動顯示購物籃
+  });
 
   // 更新總金額，根據外送選項加上外送費用
   function updateTotalPrice() {
@@ -84,13 +83,13 @@ $('#cart-btn').on('click', function() {
 
   // 前往結帳
   $('#checkout-btn').on('click', function() {
-     const cartItems = $('#cart-items .cart-item');
+    const cartItems = $('#cart-items .cart-item');
 
-  // 檢查購物車是否為空
-  if (cartItems.length === 0) {
-    showPopup('購物車是空的，請先添加商品！'); // 顯示提示
-    return; // 退出，不執行後續代碼
-  }
+    // 檢查購物車是否為空
+    if (cartItems.length === 0) {
+      showPopup('購物車是空的，請先添加商品！'); // 顯示提示
+      return; // 退出，不執行後續代碼
+    }
     $('.content-section').fadeOut(200, function() {
       $('#checkout').fadeIn(400); // 增加漸入動畫
     });
@@ -172,4 +171,3 @@ $('#cart-btn').on('click', function() {
   // 頁面加載時載入sessionStorage的購物車內容
   loadCartItems();
 });
-
