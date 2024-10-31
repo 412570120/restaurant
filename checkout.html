@@ -7,8 +7,17 @@
   <link rel="stylesheet" href="checkout.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-     $(document).ready(function() {
+    $(document).ready(function() {
       let deliveryFee = 0;
+
+      // 隱藏主要內容
+      $('#checkout').hide();
+
+      // 模擬載入效果
+      $('#loading-screen').delay(1000).fadeOut(500, function() {
+        // 在載入後顯示主要內容
+        $('#checkout').slideDown(1000);
+      });
 
       // 當頁面加載時，從 SessionStorage 讀取購物車內容
       const cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
@@ -58,15 +67,58 @@
         sessionStorage.removeItem('cartItems'); // 清空購物車
         window.location.href = 'index.html'; // 回到主頁
       });
-      
+
       // 初始隱藏載具輸入框
       $('#carrier-input').hide();
     });
   </script>
+  <style>
+    /* 添加 CSS 動畫 */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      z-index: 999; /* 確保在最上層 */
+    }
+
+    #sliding-text {
+      position: relative;
+      overflow: hidden;
+      height: 50px; /* 調整高度以適應你的內容 */
+      background-color: #f0f0f0; /* 背景顏色 */
+    }
+
+    #sliding-text h3 {
+      position: absolute;
+      white-space: nowrap; /* 不換行 */
+      animation: slide 5s linear infinite; /* 設定動畫 */
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(100%); /* 從右側進入 */
+      }
+      100% {
+        transform: translateX(-100%); /* 向左側移動到完全消失 */
+      }
+    }
+  </style>
 </head>
 <body>
   <main>
+    <div id="loading-screen">
+      <h2>載入中...</h2>
+    </div>
     <section id="checkout" class="checkout-section">
+      <div id="sliding-text">
+        <h3>即將開始結帳，請稍候...</h3>
+      </div>
       <h2>結帳頁面</h2>
       <p>注意: 本舖僅提供現金支付</p>
       <ul id="checkout-items"></ul>
