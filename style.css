@@ -183,18 +183,6 @@ button.remove-item:hover {
 background-color: #c82333;
 }
 
-button.check {
-background-color: #28a745;
-color: white;
-border: none;
-padding: 8px 12px;
-border-radius: 5px;
-cursor: pointer;
-}
-
-button.check:hover {
-background-color: #218838;
-}
 
 #total-price {
 font-weight: bold;
