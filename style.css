@@ -158,7 +158,7 @@ text-align: left;
 }
 
 button.add-to-cart {
-background-color: #28a745;
+background-color: #31632d;
 color: white;
 border: none;
 padding: 8px 12px;
@@ -167,11 +167,11 @@ cursor: pointer;
 }
 
 button.add-to-cart:hover {
-background-color: #218838;
+background-color: #509e49;
 }
 
 button.remove-item {
-background-color: #dc3545;
+background-color: #823d3d;
 color: white;
 border: none;
 padding: 5px 8px;
@@ -180,7 +180,7 @@ cursor: pointer;
 }
 
 button.remove-item:hover {
-background-color: #c82333;
+background-color: #9e4949;
 }
 
 
@@ -190,7 +190,7 @@ margin-top: 15px;
 }
 
 #clear-cart {
-background-color: #ffc107;
+background-color: #919446;
 color: #333;
 border: none;
 padding: 10px 20px;
@@ -200,7 +200,7 @@ cursor: pointer;
 }
 
 #clear-cart:hover {
-background-color: #e0a800;
+background-color: #b9bd59;
 }
 
 /* 購物籃樣式 */
