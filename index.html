@@ -43,6 +43,34 @@
         <ul id="cart-items"></ul>
         <p id="total-price">總金額: NT$0</p>
         <button id="clear-cart">清空購物車</button>
+        <button id="checkout-btn">結帳</button>
+      </section>
+
+      <section id="checkout" class="content-section" style="display: none;">
+        <h2>結帳頁面</h2>
+        <ul id="checkout-items"></ul>
+        <p id="checkout-total">總金額: NT$0</p>
+        <label>
+          <input type="radio" name="delivery" value="self-pickup" checked> 自取
+        </label>
+        <label>
+          <input type="radio" name="delivery" value="delivery"> 外送 (加收30元)
+        </label>
+        <br>
+        <label>選擇發票形式:
+          <select id="invoice-type">
+            <option value="paper">紙本</option>
+            <option value="carrier">載具</option>
+          </select>
+        </label>
+        <br><br>
+        <button id="confirm-checkout">確認結帳</button>
+        <button id="back-to-cart">回到購物車</button>
+      </section>
+
+      <section id="order-complete" class="content-section" style="display: none;">
+        <h2>結帳完成！</h2>
+        <p>感謝您的購買！即將返回主頁面...</p>
       </section>
     </main>
   </div>
@@ -53,3 +81,4 @@
   </div>
 </body>
 </html>
+
