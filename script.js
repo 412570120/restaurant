@@ -5,6 +5,19 @@ $(document).ready(function() {
     $('#popup-message').fadeIn(300).delay(1000).fadeOut(300);
   }
 
+  // 切換顯示菜單和購物車
+  $('#menu-btn').on('click', function(e) {
+    e.preventDefault();
+    $('#menu').show();
+    $('#cart').hide();
+  });
+
+  $('#cart-btn').on('click', function(e) {
+    e.preventDefault();
+    $('#menu').hide();
+    $('#cart').show();
+  });
+
   // 新增至購物車按鈕事件
   $('.add-to-cart').on('click', function() {
     const itemName = $(this).closest('.menu-item').data('name');
