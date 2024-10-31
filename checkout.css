@@ -110,6 +110,41 @@ button:hover {
   background-color: #6a6a6a;
 }
 
+ #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.5);
+      z-index: 999; /* 確保在最上層 */
+    }
+
+    #sliding-text {
+      position: relative;
+      overflow: hidden;
+      height: 50px; /* 調整高度以適應你的內容 */
+      background-color: #f0f0f0; /* 背景顏色 */
+    }
+
+    #sliding-text h3 {
+      position: absolute;
+      white-space: nowrap; /* 不換行 */
+      animation: slide 5s linear infinite; /* 設定動畫 */
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(100%); /* 從右側進入 */
+      }
+      100% {
+        transform: translateX(-100%); /* 向左側移動到完全消失 */
+      }
+    }
+
 /* 使頁面在小螢幕上更具響應性 */
 @media (max-width: 480px) {
   .checkout-section {
