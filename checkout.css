@@ -129,6 +129,8 @@ button:hover {
       overflow: hidden;
       height: 50px; /* 調整高度以適應你的內容 */
       background-color: #a49ba8; /* 背景顏色 */
+      padding: 10px; /* 添加一些內邊距以使內容更美觀 */
+      border-radius: 5px; /* 添加圓角 */
     }
 
     #sliding-text h3 {
@@ -144,8 +146,6 @@ button:hover {
 #upcoming-message{
  background-color: #a49ba8; /* 將背景顏色設置為淺灰色，您可以更改為所需顏色 */
  color: black;
- padding: 10px; /* 添加一些內邊距以使內容更美觀 */
- border-radius: 5px; /* 添加圓角 */
 }
 
     @keyframes slide {
