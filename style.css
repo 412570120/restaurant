@@ -89,7 +89,6 @@ margin: 20px 0;
   flex-direction: column;
   align-items: center;
   background-color: #f9f9f9; /* 可以根據需要修改 */
-  background-image: url('background2.png'); /* 替換為新圖片的路徑 */
   background-size: cover;
   background-position: center;
   margin: 20px 0;
