@@ -202,6 +202,65 @@ cursor: pointer;
 background-color: #e0a800;
 }
 
+/* 購物籃樣式 */
+#cart-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+#cart-items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+#cart-items li .item-name {
+  flex: 1;
+  font-weight: bold;
+}
+
+#cart-items li .item-price {
+  margin-right: 10px;
+}
+
+#cart-items li .remove-btn {
+  background-color: #d9534f;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+#total-price {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 2px solid #000;
+  font-weight: bold;
+  text-align: right;
+}
+
+#clear-cart, #checkout-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+}
+
+#clear-cart {
+  background-color: #ffc107;
+  color: black;
+}
+
+#checkout-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+
 /* 彈窗樣式 */
 .popup {
 display: none;
@@ -233,4 +292,3 @@ cursor: pointer;
 button#checkout-btn:hover, #confirm-checkout:hover, #back-to-cart:hover {
 background-color: #0056b3;
 }
-~
