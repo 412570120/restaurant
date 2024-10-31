@@ -42,7 +42,19 @@ $(document).ready(function() {
   $('#checkout-btn').on('click', function() {
     $('.content-section').hide();
     $('#checkout').show();
-    $('#checkout-items').html($('#cart-items').html());
+
+    // 複製購物籃內容到結帳頁面
+    $('#checkout-items').empty(); // 清空結帳項目
+    $('#cart-items .cart-item').each(function() {
+      const itemName = $(this).data('name');
+      const itemPrice = $(this).data('price');
+      $('#checkout-items').append(`
+        <li class="checkout-item" data-price="${itemPrice}">
+          ${itemName} - NT$${itemPrice}
+        </li>
+      `);
+    });
+    
     updateTotalPrice();
   });
 
