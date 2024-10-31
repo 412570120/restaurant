@@ -87,7 +87,7 @@ $(document).ready(function() {
 
     // 檢查購物車是否為空
     if (cartItems.length === 0) {
-      showPopup('購物車是空的，請先添加商品！'); // 顯示提示
+      showPopup('購物籃是空的，請先餵它吃東西！'); // 顯示提示
       return; // 退出，不執行後續代碼
     }
     $('.content-section').fadeOut(200, function() {
@@ -145,7 +145,7 @@ $(document).ready(function() {
     `).hide().slideDown(500); // 加入滑入動畫
     updateTotalPrice();
     updateSessionStorage(); // 更新 sessionStorage
-    showPopup(`${itemName} 已加入購物車！`);
+    showPopup(`${itemName} 已新增購物籃！`);
   });
 
   // 刪除購物車內的單一商品，加入滑出效果
@@ -154,7 +154,7 @@ $(document).ready(function() {
       $(this).remove();
       updateTotalPrice();
       updateSessionStorage(); // 更新 sessionStorage
-      showPopup('商品已從購物車移除！');
+      showPopup('商品已從購物籃移除！');
     });
   });
 
@@ -164,7 +164,7 @@ $(document).ready(function() {
       $(this).remove();
       updateTotalPrice();
       sessionStorage.removeItem('cartItems'); // 清空 sessionStorage
-      showPopup('購物車已清空！');
+      showPopup('購物籃已清除記憶！');
     });
   });
 
