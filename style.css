@@ -191,7 +191,7 @@ margin-top: 15px;
 
 #clear-cart {
 background-color: #919446;
-color: #333;
+color: white;
 border: none;
 padding: 10px 20px;
 margin-top: 15px;
@@ -241,11 +241,6 @@ background-color: #c47225;
   border-top: 2px solid #000;
   font-weight: bold;
   text-align: right;
-}
-
-#clear-cart {
-  background-color: #854d19;
-  color: black;
 }
 
 #checkout-btn {
