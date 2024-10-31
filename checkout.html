@@ -6,42 +6,6 @@
   <title>結帳 - 小羊魔藥舖</title>
   <link rel="stylesheet" href="checkout.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      overflow-x: hidden; /* 防止水平滾動條 */
-    }
-    #checkout {
-      padding: 20px;
-      background: #f9f9f9;
-      border: 1px solid #ccc;
-      margin: 0 auto;
-      max-width: 600px;
-      position: relative;
-      overflow: hidden;
-    }
-    #sliding-text {
-      position: absolute;
-      top: 10px;
-      left: -100%; /* 起始位置在視口外 */
-      font-size: 24px;
-      font-weight: bold;
-      color: #333;
-      white-space: nowrap; /* 防止換行 */
-      animation: slide-in 4s linear infinite; /* 滑動動畫 */
-    }
-    @keyframes slide-in {
-      0% {
-        left: -100%; /* 起始在視口外 */
-      }
-      50% {
-        left: 50%; /* 滑到中間 */
-      }
-      100% {
-        left: 100%; /* 滑出視口 */
-      }
-    }
-  </style>
   <script>
      $(document).ready(function() {
       let deliveryFee = 0;
