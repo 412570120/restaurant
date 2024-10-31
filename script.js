@@ -31,8 +31,12 @@ $(document).ready(function() {
   });
 
   $('#cart-items').on('click', '.remove-item', function() {
+    const itemName = $(this).closest('.cart-item').data('name');
     $(this).closest('.cart-item').remove();
     updateTotalPrice();
+
+    // 顯示成功刪除商品的提示
+    showPopup(`${itemName} 已從購物車移除！`);
   });
 
   $('#clear-cart').on('click', function() {
