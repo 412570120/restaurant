@@ -7,6 +7,22 @@ $(document).ready(function() {
     $('#popup-message').slideDown(300).delay(1000).slideUp(300); // 滑入和滑出
   }
 
+  $('header h1').slideDown(1000); // 1秒滑入
+  $('header h2').each(function(index) {
+    $(this).delay(1000 + index * 500).slideDown(1000); // 每個副標題依序滑入
+  });
+
+  $('#menu-btn').on('click', function() {
+  $('.content-section').slideUp(300); // 隱藏其他內容
+  $('#menu').delay(300).slideDown(500); // 滑動顯示魔藥鋪內容
+});
+
+$('#cart-btn').on('click', function() {
+  $('.content-section').slideUp(300);
+  $('#cart').delay(300).slideDown(500); // 滑動顯示購物籃
+});
+
+
   // 更新總金額，根據外送選項加上外送費用
   function updateTotalPrice() {
     let totalPrice = 0;
