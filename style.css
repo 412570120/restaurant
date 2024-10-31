@@ -15,7 +15,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url('您的自定義圖片路徑'); /* 替換為圖片路徑 */
+  background-image: url('background.png'); /* 替換為圖片路徑 */
   background-size: cover;
   background-position: center;
   color: #333;
