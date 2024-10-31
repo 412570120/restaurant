@@ -249,8 +249,18 @@ background-color: #e0a800;
 }
 
 #checkout-btn {
-  background-color: #63312d;
-  color: white;
+  color: #ebe8e8;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 2px solid #ebe8e8;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#checkout-btn:hover {
+  background-color: #ebe8e8;
+  color: #333;
 }
 
 
