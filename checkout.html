@@ -6,63 +6,7 @@
   <title>結帳 - 小羊魔藥舖</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      let deliveryFee = 0;
-
-      // 當頁面加載時，從 SessionStorage 讀取購物車內容
-      const cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
-      cartItems.forEach(item => {
-        $('#checkout-items').append(`
-          <li class="cart-item" data-name="${item.name}" data-price="${item.price}">
-            <span>${item.name} - NT$${item.price}</span>
-          </li>
-        `);
-      });
-      updateTotalPrice();
-
-      // 更新總金額，根據外送選項加上外送費用
-      function updateTotalPrice() {
-        let totalPrice = 0;
-        $('#checkout-items .cart-item').each(function() {
-          const itemPrice = $(this).data('price');
-          totalPrice += itemPrice;
-        });
-
-        $('#checkout-total').text(`總金額: NT$${totalPrice + deliveryFee}`);
-      }
-
-      // 切換外送/自取時更新運費
-      $('input[name="delivery"]').on('change', function() {
-        deliveryFee = $(this).val() === 'delivery' ? 30 : 0;
-        updateTotalPrice();
-      });
-
-      // 顯示或隱藏載具輸入框
-      $('#invoice-type').on('change', function() {
-        if ($(this).val() === 'carrier') {
-          $('#carrier-input').show();
-        } else {
-          $('#carrier-input').hide();
-        }
-      });
-
-      // 回到購物籃
-      $('#back-to-cart').on('click', function() {
-        window.location.href = 'index.html'; // 假設主頁為 index.html
-      });
-
-      // 確認結帳
-      $('#confirm-checkout').on('click', function() {
-        alert('結帳成功！感謝您的購買！');
-        sessionStorage.removeItem('cartItems'); // 清空購物車
-        window.location.href = 'index.html'; // 回到主頁
-      });
-      
-      // 初始隱藏載具輸入框
-      $('#carrier-input').hide();
-    });
-  </script>
+  <script src="scripts.js"></script>
 </head>
 <body>
   <main>
