@@ -63,10 +63,35 @@
 
       // 確認結帳
       $('#confirm-checkout').on('click', function() {
-        alert('結帳成功！感謝您的購買！');
-        sessionStorage.removeItem('cartItems'); // 清空購物車
-        window.location.href = 'index.html'; // 回到主頁
-      });
+  if ($('#invoice-type').val() === 'carrier' && $('#carrier-input').val().trim() === '') {
+    showPopup('請輸入載具');
+  } else {
+    confirmCheckout();
+  }
+});
+
+      function confirmCheckout() {
+  $('#popup-message').html(`
+    <p>是否確認結帳？</p>
+    <button id="confirm-btn">確認</button>
+    <button id="cancel-btn">取消</button>
+  `).fadeIn();
+
+  $('#confirm-btn').on('click', function() {
+    $('#popup-message').fadeOut(function() {
+      showPopup('結帳成功！感謝您的購買！');
+      sessionStorage.removeItem('cartItems');
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 3000);
+    });
+  });
+
+  $('#cancel-btn').on('click', function() {
+    $('#popup-message').fadeOut();
+  });
+}
+
 
       // 初始隱藏載具輸入框
       $('#carrier-input').hide();
