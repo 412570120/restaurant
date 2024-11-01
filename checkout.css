@@ -1,3 +1,4 @@
+/* 基礎頁面樣式 */
 body {
   font-family: Arial, sans-serif;
   color: #e0e0e0;
@@ -9,6 +10,7 @@ body {
   margin: 0;
 }
 
+
 /* 結帳框置中設計 */
 .checkout-section {
   width: 90%;
@@ -16,6 +18,7 @@ body {
   background-color: #695969; /* 較淺的灰黑色背景 */
   border-radius: 8px;
   padding: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
@@ -109,51 +112,51 @@ button:hover {
   background-color: #6a6a6a;
 }
 
-#loading-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: 999; /* 確保在最上層 */
-}
+ #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.5);
+      z-index: 999; /* 確保在最上層 */
+    }
 
-#sliding-text {
-  position: relative;
-  overflow: hidden;
-  height: 50px; /* 調整高度以適應你的內容 */
-  background-color: #a49ba8; /* 背景顏色 */
-  padding: 10px; /* 添加一些內邊距以使內容更美觀 */
-  border-radius: 5px; /* 添加圓角 */
-}
+    #sliding-text {
+      position: relative;
+      overflow: hidden;
+      height: 50px; /* 調整高度以適應你的內容 */
+      background-color: #a49ba8; /* 背景顏色 */
+      padding: 10px; /* 添加一些內邊距以使內容更美觀 */
+      border-radius: 5px; /* 添加圓角 */
+    }
 
-#sliding-text h3 {
-  position: absolute;
-  white-space: nowrap; /* 不換行 */
-  animation: slide 5s linear infinite; /* 設定動畫 */
-}
+    #sliding-text h3 {
+      position: absolute;
+      white-space: nowrap; /* 不換行 */
+      animation: slide 5s linear infinite; /* 設定動畫 */
+    }
 
 #loading-message,{
-  color: black; /* 將文字顏色設置為黑色 */
+    color: black; /* 將文字顏色設置為黑色 */
 }
 
 #upcoming-message{
-  background-color: #a49ba8; /* 將背景顏色設置為淺灰色，您可以更改為所需顏色 */
-  color: black;
+ background-color: #a49ba8; /* 將背景顏色設置為淺灰色，您可以更改為所需顏色 */
+ color: black;
 }
 
-@keyframes slide {
-  0% {
-    transform: translateX(100%); /* 從右側進入 */
-  }
-  100% {
-    transform: translateX(-100%); /* 向左側移動到完全消失 */
-  }
-}
+    @keyframes slide {
+      0% {
+        transform: translateX(100%); /* 從右側進入 */
+      }
+      100% {
+        transform: translateX(-100%); /* 向左側移動到完全消失 */
+      }
+    }
 
 /* 使頁面在小螢幕上更具響應性 */
 @media (max-width: 480px) {
@@ -161,11 +164,11 @@ button:hover {
     width: 95%;
     padding: 20px;
   }
-  
+
   #checkout-items .cart-item {
     font-size: 16px;
   }
-  
+
   button {
     font-size: 16px;
     padding: 10px;
