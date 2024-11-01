@@ -87,6 +87,7 @@ $(document).ready(function() {
 
     // 檢查購物車是否為空
     if (cartItems.length === 0) {
+      event.preventDefault();
       showPopup('購物籃是空的，請先餵它吃東西！'); // 顯示提示
       return; // 退出，不執行後續代碼
     }
