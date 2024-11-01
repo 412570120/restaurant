@@ -91,9 +91,20 @@ $(document).ready(function() {
       showPopup('購物籃是空的，請先餵它吃東西！'); // 顯示提示
       return; // 退出，不執行後續代碼
     }
+    
     $('.content-section').fadeOut(200, function() {
       $('#checkout').fadeIn(400); // 增加漸入動畫
     });
+
+    $('#checkout-btn').on('click', function(event) {
+  if ($('#cart-items').children().length === 0) {
+    event.preventDefault();
+    showPopup('購物籃是空的，請先餵它吃東西！');
+  } else {
+    window.location.href = 'checkout.html';
+  }
+});
+
 
     // 複製購物籃內容到結帳頁面
     $('#checkout-items').empty(); // 清空結帳項目
