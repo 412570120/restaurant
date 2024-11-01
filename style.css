@@ -164,6 +164,7 @@ border: none;
 padding: 8px 12px;
 border-radius: 5px;
 cursor: pointer;
+transition: background-color 0.3s, color 0.3s;
 }
 
 button.add-to-cart:hover {
@@ -177,6 +178,7 @@ border: none;
 padding: 5px 8px;
 border-radius: 5px;
 cursor: pointer;
+transition: background-color 0.3s, color 0.3s;
 }
 
 button.remove-item:hover {
@@ -197,10 +199,12 @@ padding: 10px 20px;
 margin-top: 15px;
 border-radius: 5px;
 cursor: pointer;
+transition: background-color 0.3s, color 0.3s;
 }
 
 #clear-cart:hover {
 background-color: #6907ab;
+color: #333;
 }
 
 /* 購物籃樣式 */
@@ -233,6 +237,7 @@ background-color: #6907ab;
   border: none;
   cursor: pointer;
   font-size: 0.9em;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 #total-price {
@@ -285,6 +290,7 @@ padding: 10px 20px;
 margin-top: 15px;
 border-radius: 5px;
 cursor: pointer;
+transition: background-color 0.3s, color 0.3s;
 }
 
 button#checkout-btn:hover, #confirm-checkout:hover, #back-to-cart:hover {
