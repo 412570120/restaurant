@@ -10,9 +10,27 @@
     $(document).ready(function() {
       let deliveryFee = 0;
 
+      // 顯示彈窗
+  function showPopup(message) {
+    $('#popup-text').text(message);
+    $('#popup-message').fadeIn().delay(1500).fadeOut();
+  }
+
+  // 檢查購物車是否為空並顯示彈窗
+  function checkCartNotEmpty() {
+    const cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
+    return cartItems.length > 0;
+  }
+       // 「去結帳」按鈕點擊事件
+  $('#checkout-btn').on('click', function (e) {
+    if (!checkCartNotEmpty()) {
+      e.preventDefault();
+      showPopup('購物車為空！');
+    }
+  });
+
       // 隱藏主要內容
       $('#checkout').hide();
-
       // 模擬載入效果
       $('#loading-screen').delay(1000).fadeOut(500, function() {
         // 在載入後顯示主要內容
@@ -66,36 +84,19 @@
   if ($('#invoice-type').val() === 'carrier' && $('#carrier-input').val().trim() === '') {
     showPopup('請輸入載具');
   } else {
-    confirmCheckout();
+    return;
   }
+      const confirmation = confirm('是否確認結帳？');
+    if (confirmation) {
+      showPopup('感謝您的購買！'); // 顯示感謝彈窗
+      setTimeout(function () {
+        $('#carrier-input').hide();
+        sessionStorage.removeItem('cartItems'); // 清空購物車
+        window.location.href = 'index.html'; // 回到主頁
+      }, 3000); // 3秒後跳轉
+    }
+  });
 });
-
-      function confirmCheckout() {
-  $('#popup-message').html(`
-    <p>是否確認結帳？</p>
-    <button id="confirm-btn">確認</button>
-    <button id="cancel-btn">取消</button>
-  `).fadeIn();
-
-  $('#confirm-btn').on('click', function() {
-    $('#popup-message').fadeOut(function() {
-      showPopup('結帳成功！感謝您的購買！');
-      sessionStorage.removeItem('cartItems');
-      setTimeout(() => {
-        window.location.href = 'index.html';
-      }, 3000);
-    });
-  });
-
-  $('#cancel-btn').on('click', function() {
-    $('#popup-message').fadeOut();
-  });
-}
-
-
-      // 初始隱藏載具輸入框
-      $('#carrier-input').hide();
-    });
   </script>
 
 </head>
