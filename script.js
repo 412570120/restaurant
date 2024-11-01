@@ -1,7 +1,7 @@
 $(document).ready(function() {
   let deliveryFee = 0;
 
-  // 顯示彈窗的函數，加入滑動效果
+// 顯示彈窗的函數，加入滑動效果
   function showPopup(message) {
     $('#popup-text').text(message);
     $('#popup-message').slideDown(300).delay(1000).slideUp(300); // 滑入和滑出
