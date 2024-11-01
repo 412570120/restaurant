@@ -18,7 +18,7 @@ body {
   background-color: #695969; /* 較淺的灰黑色背景 */
   border-radius: 8px;
   padding: 30px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
