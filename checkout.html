@@ -22,11 +22,11 @@
       // 當頁面加載時，從 SessionStorage 讀取購物車內容
       const cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
       cartItems.forEach(item => {
-        $('#checkout-items').append(
+        $('#checkout-items').append(`
           <li class="cart-item" data-name="${item.name}" data-price="${item.price}">
             <span>${item.name} - NT$${item.price}</span>
           </li>
-        );
+        `);
       });
       updateTotalPrice();
 
@@ -38,7 +38,7 @@
           totalPrice += itemPrice;
         });
 
-        $('#checkout-total').text(總金額: NT$${totalPrice + deliveryFee});
+        $('#checkout-total').text(`總金額: NT$${totalPrice + deliveryFee}`);
       }
 
       // 切換外送/自取時更新運費
@@ -72,8 +72,8 @@
       $('#carrier-input').hide();
     });
   </script>
+
 </head>
-  
 <body>
   <main>
     <div id="loading-screen">
@@ -81,6 +81,7 @@
     </div>
     <section id="checkout" class="checkout-section">
       <div id="sliding-text">
+        <h3 id="upcoming-message">正在結帳...</h3>
         <h3 id="upcoming-message">小羊正在幫您結帳...</h3>
       </div>
       <h2>結帳頁面</h2>
