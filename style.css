@@ -179,7 +179,7 @@ margin-right: 20px;
 }
 
 button.add-to-cart {
-background-color: #31632d;
+background-color: #7a7380;
 color: white;
 border: none;
 padding: 8px 12px;
@@ -189,7 +189,7 @@ transition: background-color 0.3s, color 0.3s;
 }
 
 button.add-to-cart:hover {
-background-color: #509e49;
+background-color: #a297a8;
 }
 
 button.remove-item {
