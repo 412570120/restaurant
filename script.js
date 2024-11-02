@@ -30,8 +30,8 @@ $(document).ready(function() {
       totalPrice += itemPrice;
     });
 
-    $('#total-price').text(總金額: NT$${totalPrice});
-    $('#checkout-total').text(總金額: NT$${totalPrice + deliveryFee});
+    $('#total-price').text(`總金額: NT$${totalPrice}`);
+    $('#checkout-total').text(`總金額: NT$${totalPrice + deliveryFee}`);
   }
 
   // 更新sessionStorage的購物車內容
@@ -51,10 +51,10 @@ $(document).ready(function() {
     $('#cart-items').empty();
     cartItems.forEach(item => {
       $('#cart-items').append(
-        <li class="cart-item" data-name="${item.name}" data-price="${item.price}">
+        `<li class="cart-item" data-name="${item.name}" data-price="${item.price}">
           <span>${item.name} - NT$${item.price}</span>
           <button class="remove-item">刪除</button>
-        </li>
+        </li>`
       ).hide().slideDown(500); // 增加滑入動畫
     });
     updateTotalPrice();
@@ -82,7 +82,7 @@ $(document).ready(function() {
   });
 
   // 前往結帳
-  $('#checkout-btn').on('click', function() {
+  $('#checkout-btn').on('click', function(event) {
     const cartItems = $('#cart-items .cart-item');
 
     // 檢查購物車是否為空
@@ -101,9 +101,9 @@ $(document).ready(function() {
       const itemName = $(this).data('name');
       const itemPrice = $(this).data('price');
       $('#checkout-items').append(
-        <li class="checkout-item" data-price="${itemPrice}">
+        `<li class="checkout-item" data-price="${itemPrice}">
           ${itemName} - NT$${itemPrice}
-        </li>
+        </li>`
       ).hide().fadeIn(500); // 加入漸入效果
     });
 
@@ -139,14 +139,14 @@ $(document).ready(function() {
     const itemPrice = $(this).closest('.menu-item').data('price');
 
     $('#cart-items').append(
-      <li class="cart-item" data-name="${itemName}" data-price="${itemPrice}">
+      `<li class="cart-item" data-name="${itemName}" data-price="${itemPrice}">
         <span>${itemName} - NT$${itemPrice}</span>
         <button class="remove-item">刪除</button>
-      </li>
+      </li>`
     ).hide().slideDown(500); // 加入滑入動畫
     updateTotalPrice();
     updateSessionStorage(); // 更新 sessionStorage
-    showPopup(${itemName} 已新增購物籃！);
+    showPopup(`${itemName} 已新增購物籃！`);
   });
 
   // 刪除購物車內的單一商品，加入滑出效果
