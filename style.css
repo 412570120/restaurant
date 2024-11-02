@@ -153,7 +153,7 @@ margin-bottom: 10px;
 border-radius: 8px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 list-style-type: none; /* 移除項目符號 */
-padding-left: 1; /* 移除左邊的縮排 */
+padding-left: 2; /* 移除左邊的縮排 */
 transition: transform 0.3s ease;
 }
 
