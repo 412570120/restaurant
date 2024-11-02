@@ -30,7 +30,8 @@ color: #333;
 padding: 20px;
 }
 
-.right-section h2 {
+.right-section h2,
+.right-section p{
   color: #2d2b2e; /* 你想要的顏色代碼 */
 }
 
