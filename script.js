@@ -30,6 +30,8 @@ $(document).ready(function() {
       totalPrice += itemPrice;
     });
 
+    $('#total-price').text(總金額: NT$${totalPrice});
+    $('#checkout-total').text(總金額: NT$${totalPrice + deliveryFee});
     $('#total-price').text(`總金額: NT$${totalPrice}`);
     $('#checkout-total').text(`總金額: NT$${totalPrice + deliveryFee}`);
   }
@@ -50,11 +52,13 @@ $(document).ready(function() {
     const cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
     $('#cart-items').empty();
     cartItems.forEach(item => {
+      $('#cart-items').append(
       $('#cart-items').append(`
         <li class="cart-item" data-name="${item.name}" data-price="${item.price}">
           <span>${item.name} - NT$${item.price}</span>
           <button class="remove-item">刪除</button>
         </li>
+      ).hide().slideDown(500); // 增加滑入動畫
       `).hide().slideDown(500); // 增加滑入動畫
     });
     updateTotalPrice();
@@ -95,28 +99,17 @@ $(document).ready(function() {
       $('#checkout').fadeIn(400); // 增加漸入動畫
     });
 
-  $('#checkout2-btn').on('click', function() {
-    const cartItems = $('#cart-items .cart-item');
-
-    // 檢查購物車是否為空
-    if (cartItems.length === 0) {
-      event.preventDefault();
-      showPopup('購物籃是空的，請先餵它吃東西！'); // 顯示提示
-      return; // 退出，不執行後續代碼
-    }
-    $('.content-section').fadeOut(200, function() {
-      $('#checkout').fadeIn(400); // 增加漸入動畫
-    });
-
     // 複製購物籃內容到結帳頁面
     $('#checkout-items').empty(); // 清空結帳項目
     $('#cart-items .cart-item').each(function() {
       const itemName = $(this).data('name');
       const itemPrice = $(this).data('price');
+      $('#checkout-items').append(
       $('#checkout-items').append(`
         <li class="checkout-item" data-price="${itemPrice}">
           ${itemName} - NT$${itemPrice}
         </li>
+      ).hide().fadeIn(500); // 加入漸入效果
       `).hide().fadeIn(500); // 加入漸入效果
     });
 
@@ -151,14 +144,17 @@ $(document).ready(function() {
     const itemName = $(this).closest('.menu-item').data('name');
     const itemPrice = $(this).closest('.menu-item').data('price');
 
+    $('#cart-items').append(
     $('#cart-items').append(`
       <li class="cart-item" data-name="${itemName}" data-price="${itemPrice}">
         <span>${itemName} - NT$${itemPrice}</span>
         <button class="remove-item">刪除</button>
       </li>
+    ).hide().slideDown(500); // 加入滑入動畫
     `).hide().slideDown(500); // 加入滑入動畫
     updateTotalPrice();
     updateSessionStorage(); // 更新 sessionStorage
+    showPopup(${itemName} 已新增購物籃！);
     showPopup(`${itemName} 已新增購物籃！`);
   });
 
