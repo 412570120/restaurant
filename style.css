@@ -16,6 +16,7 @@ header h2 {
   font-family: 'Noto Sans TC', sans-serif; /* 可愛字體 */
 }
 
+
 .left-section {
 flex: 1;
 display: flex;
@@ -27,6 +28,11 @@ background-size: cover;
 background-position: center;
 color: #333;
 padding: 20px;
+}
+
+.left-section h1,
+.left-section h2 {
+  color: #535254; /* 你想要的顏色代碼 */
 }
 
 header {
