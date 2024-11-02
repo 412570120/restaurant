@@ -153,13 +153,20 @@ margin-bottom: 10px;
 border-radius: 8px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 list-style-type: none; /* 移除項目符號 */
-padding-left: 0; /* 移除左邊的縮排 */
+padding-left: 1; /* 移除左邊的縮排 */
+transition: transform 0.3s ease;
 }
 
 .menu-item p {
 margin: 0;
 flex: 1;
 text-align: left;
+}
+
+.menu-item:hover {
+  transform: scale(1.1); /* 當滑鼠移到商品方框時放大 10% */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* 加入陰影效果使放大效果更顯著 */
+  background-color: #e8e1ed;
 }
 
 button.add-to-cart {
