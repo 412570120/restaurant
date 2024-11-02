@@ -166,6 +166,7 @@ margin-right: 20px;
 
 .menu-item span {
   padding-left: 20px; /* 調整這裡的值以增加距離 */
+  padding-right: 20px; /* 調整這裡的值以增加距離 */
 }
 
 .menu-item:hover {
