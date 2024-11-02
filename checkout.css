@@ -1,6 +1,6 @@
 /* 基礎頁面樣式 */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
   color: #e0e0e0;
   background-image: url('background2.png');
   display: flex;
