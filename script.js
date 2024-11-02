@@ -1,5 +1,19 @@
 $(document).ready(function() {
   let deliveryFee = 0;
+  
+  $('.menu-item').css({
+    opacity: 0,
+    position: 'relative',
+    right: '-100px' // 初始位置為向右偏移 100px
+  });
+
+  // 依序為每個 .menu-item 添加滑入動畫
+  $('.menu-item').each(function(index) {
+    $(this).delay(index * 200).animate({
+      opacity: 1,
+      right: '0' // 滑入到原始位置
+    }, 600); // 每個滑入動畫的持續時間
+  });
 
   // 顯示彈窗的函數，加入滑動效果
   function showPopup(message) {
