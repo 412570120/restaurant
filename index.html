@@ -2,88 +2,109 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">  
-  <title>小羊魔藥舖</title>
-  <link rel="stylesheet" href="style.css"> 
+  <title>結帳 - 小羊魔藥舖</title>
+  <link rel="stylesheet" href="checkout.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="script.js"></script>
+  <script>
+    $(document).ready(function() {
+      let deliveryFee = 0;
+
+      // 隱藏主要內容
+      $('#checkout').hide();
+
+      // 模擬載入效果
+      $('#loading-screen').delay(1000).fadeOut(500, function() {
+        // 在載入後顯示主要內容
+        $('#checkout').slideDown(1000);
+      });
+
+      // 當頁面加載時，從 SessionStorage 讀取購物車內容
+      const cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
+      cartItems.forEach(item => {
+        $('#checkout-items').append(
+          <li class="cart-item" data-name="${item.name}" data-price="${item.price}">
+            <span>${item.name} - NT$${item.price}</span>
+          </li>
+        );
+      });
+      updateTotalPrice();
+
+      // 更新總金額，根據外送選項加上外送費用
+      function updateTotalPrice() {
+        let totalPrice = 0;
+        $('#checkout-items .cart-item').each(function() {
+          const itemPrice = $(this).data('price');
+          totalPrice += itemPrice;
+        });
+
+        $('#checkout-total').text(總金額: NT$${totalPrice + deliveryFee});
+      }
+
+      // 切換外送/自取時更新運費
+      $('input[name="delivery"]').on('change', function() {
+        deliveryFee = $(this).val() === 'delivery' ? 30 : 0;
+        updateTotalPrice();
+      });
+
+      // 顯示或隱藏載具輸入框
+      $('#invoice-type').on('change', function() {
+        if ($(this).val() === 'carrier') {
+          $('#carrier-input').show();
+        } else {
+          $('#carrier-input').hide();
+        }
+      });
+
+      // 回到購物籃
+      $('#back-to-cart').on('click', function() {
+        window.location.href = 'index.html'; // 假設主頁為 index.html
+      });
+
+      // 確認結帳
+      $('#confirm-checkout').on('click', function() {
+        alert('結帳成功！感謝您的購買！');
+        sessionStorage.removeItem('cartItems'); // 清空購物車
+        window.location.href = 'index.html'; // 回到主頁
+      });
+
+      // 初始隱藏載具輸入框
+      $('#carrier-input').hide();
+    });
+  </script>
+
 </head>
 <body>
-  <div class="left-section">
-    <header>
-      <h1>歡迎來到小羊魔藥舖</h1>
-      <h2>想要獲得更多神秘力量嗎?</h2>
-      <h2>這裡有小羊女巫專屬調製藥水，</h2>
-      <h2>讓你心想事成，天天不煩惱!</h2>
-      <nav>
-        <ul>
-          <li><a href="#" id="menu-btn">魔藥鋪</a></li>
-          <li><a href="#" id="cart-btn">購物籃</a></li>
-          <li><a href="checkout.html" id="checkout-btn">結帳</a></li>
-        </ul>
-      </nav>
-    </header>
-  </div>
-
-  <div class="right-section">
-    <main>
-      <section id="menu" class="content-section">
-        <h2>魔藥鋪</h2>
-        <div class="menu-item" data-name="一夜好眠" data-price="150">
-          <p>一夜好眠</p>
-           <p class="description">專治有睡眠障礙的你，一覺到天亮</p>
-          <span>NT$150/2</span>
-          <button class="add-to-cart">加入購物籃</button>
-        </div>
-        <div class="menu-item" data-name="速速速" data-price="200">
-          <p>速速速</p>
-           <p class="description">喝了它可以提升速度，從校門口走到國璽樓只需3秒鐘</p>
-          <span>NT$200/1</span>
-          <button class="add-to-cart">加入購物籃</button>
-        </div>
-        <div class="menu-item" data-name="變身閃粉" data-price="500">
-          <p>變身閃粉</p>
-           <p class="description">將其撒在目標對象身上，他就會變成一隻羊喔，咩~</p>
-          <span>NT$500/2</span>
-          <button class="add-to-cart">加入購物籃</button>
-        </div>
-        <div class="menu-item" data-name="愛情毒藥" data-price="2000">
-          <p>愛情毒藥</p>
-          <p class="description">只要拿給心儀對象服用，他就會對你一見鍾情!</p>
-          <span>NT$2000/1</span>
-          <button class="add-to-cart">加入購物籃</button>
-        </div>
-        <div class="menu-item" data-name="時光水" data-price="5000">
-          <p>時光水</p>
-           <p class="description">讓你回到過去，彌補從前的遺憾</p>
-          <span>NT$5000/1</span>
-          <button class="add-to-cart">加入購物籃</button>
-        </div>
-        <div class="menu-item" data-name="心想事成" data-price="5000">
-          <p>心想事成</p>
-           <p class="description">心想事成也是要有代價的!喝下他壽命會減少十年</p>
-          <span>NT$5000/1</span>
-          <button class="add-to-cart">加入購物籃</button>
-        </div>
-      </section>
-
-      <section id="cart" class="content-section" style="display: none;">
-        <h2>購物籃</h2>
-        <ul id="cart-items"></ul>
-        <p id="total-price">總金額: NT$0</p>
-        <button id="clear-cart">清空購物籃</button>
-        <button id="checkout-btn" onclick="window.location.href='checkout.html'">去結帳</button>
-      </section>
-    </main>
-  </div>
-
-  <!-- 彈窗 -->
-  <div id="popup-message" class="popup">
-    <span id="popup-text"></span>
-  </div>
+  <main>
+    <div id="loading-screen">
+      <h2 id="loading-message">載入中...</h2>
+    </div>
+    <section id="checkout" class="checkout-section">
+      <div id="sliding-text">
+        <h3 id="upcoming-message">小羊正在幫您結帳...</h3>
+      </div>
+      <h2>結帳頁面</h2>
+      <p>注意: 本舖僅提供現金支付</p>
+      <ul id="checkout-items"></ul>
+      <p id="checkout-total">總金額: NT$0</p>
+      <label>
+        <input type="radio" name="delivery" value="self-pickup" checked> 自取
+      </label>
+      <label>
+        <input type="radio" name="delivery" value="delivery"> 外送 (加收30元)
+      </label>
+      <br>
+      <label>選擇發票形式:
+        <select id="invoice-type">
+          <option value="paper">紙本</option>
+          <option value="carrier">載具</option>
+        </select>
+      </label>
+      <input type="text" id="carrier-input" placeholder="輸入載具...">
+      <br><br>
+      <button id="confirm-checkout">確認結帳</button>
+      <button id="back-to-cart">回到購物籃</button>
+    </section>
+  </main>
 </body>
-</html>
+</html> 
