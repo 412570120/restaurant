@@ -214,7 +214,7 @@ margin-top: 15px;
 }
 
 #clear-cart {
-background-color: #4b047a;
+background-color: #7a7380;
 text-decoration: none;
 font-weight: bold;
 color: white;
@@ -227,7 +227,7 @@ transition: background-color 0.3s, color 0.3s;
 }
 
 #clear-cart:hover {
-background-color: #6907ab;
+background-color: #a297a8;
 }
 
 /* 購物籃樣式 */
