@@ -7,13 +7,16 @@ margin: 0;
 padding: 0;
 display: flex;
 min-height: 100vh;
+font-family: 'Potta One', sans-serif;
 }
 
-.yusei-magic-regular {
-  font-family: "Yusei Magic", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+.menu-item p,
+.menu-item span,
+header h1,
+header h2 {
+  font-family: 'Potta One', sans-serif; /* 可愛字體 */
 }
+
 .left-section {
 flex: 1;
 display: flex;
