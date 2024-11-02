@@ -30,8 +30,7 @@ color: #333;
 padding: 20px;
 }
 
-.left-section h1,
-.left-section h2 {
+.right-section h2 {
   color: #535254; /* 你想要的顏色代碼 */
 }
 
@@ -220,7 +219,7 @@ margin-top: 15px;
 }
 
 #clear-cart {
-background-color: #7a7380;
+background-color: #4b464f;
 text-decoration: none;
 font-weight: bold;
 color: white;
