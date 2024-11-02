@@ -161,6 +161,11 @@ transition: transform 0.3s ease;
 margin: 0;
 flex: 1;
 text-align: left;
+margin-right: 10px; 
+}
+
+.menu-item span {
+  padding-left: 10px; /* 調整這裡的值以增加距離 */
 }
 
 .menu-item:hover {
