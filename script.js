@@ -95,6 +95,19 @@ $(document).ready(function() {
       $('#checkout').fadeIn(400); // 增加漸入動畫
     });
 
+  $('#checkout2-btn').on('click', function() {
+    const cartItems = $('#cart-items .cart-item');
+
+    // 檢查購物車是否為空
+    if (cartItems.length === 0) {
+      event.preventDefault();
+      showPopup('購物籃是空的，請先餵它吃東西！'); // 顯示提示
+      return; // 退出，不執行後續代碼
+    }
+    $('.content-section').fadeOut(200, function() {
+      $('#checkout').fadeIn(400); // 增加漸入動畫
+    });
+
     // 複製購物籃內容到結帳頁面
     $('#checkout-items').empty(); // 清空結帳項目
     $('#cart-items .cart-item').each(function() {
