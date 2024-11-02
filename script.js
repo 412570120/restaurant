@@ -28,7 +28,13 @@ $(document).ready(function() {
 
   $('#menu-btn').on('click', function() {
     $('.content-section').slideUp(300); // 隱藏其他內容
-    $('#menu').delay(300).slideDown(500); // 滑動顯示魔藥鋪內容
+    $('#menu').delay(300).slideDown(500, function() { // 滑動顯示魔藥鋪內容後
+    $('.menu-item').each(function(index) {
+      $(this).css({ position: 'relative', left: '100px', opacity: 0 }) // 初始位置在右側
+        .delay(index * 200) // 每個項目延遲200毫秒
+        .animate({ left: '0', opacity: 1 }, 600); // 從右側滑入到正常位置
+    });
+  });
   });
 
   $('#cart-btn').on('click', function() {
