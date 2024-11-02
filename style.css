@@ -7,14 +7,13 @@ margin: 0;
 padding: 0;
 display: flex;
 min-height: 100vh;
-font-family: 'Potta One', sans-serif;
-}
+font-family: 'Noto Sans TC', sans-serif;
 
 .menu-item p,
 .menu-item span,
 header h1,
 header h2 {
-  font-family: 'Potta One', sans-serif; /* 可愛字體 */
+  font-family: 'Noto Sans TC', sans-serif; /* 可愛字體 */
 }
 
 .left-section {
