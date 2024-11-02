@@ -61,12 +61,17 @@
         window.location.href = 'index.html'; // 假設主頁為 index.html
       });
 
-      // 確認結帳
-      $('#confirm-checkout').on('click', function() {
-        alert('結帳成功！感謝您的購買！');
-        sessionStorage.removeItem('cartItems'); // 清空購物車
-        window.location.href = 'index.html'; // 回到主頁
-      });
+     // 確認結帳
+$('#confirm-checkout').on('click', function() {
+  // 若選擇了載具發票且未填寫載具內容，則顯示警告
+  if ($('#invoice-type').val() === 'carrier' && $('#carrier-input').val().trim() === '') {
+    alert('請輸入載具');
+  } else {
+    alert('結帳成功！感謝您的購買！');
+    sessionStorage.removeItem('cartItems'); // 清空購物車
+    window.location.href = 'index.html'; // 回到主頁
+  }
+});
 
       // 初始隱藏載具輸入框
       $('#carrier-input').hide();
